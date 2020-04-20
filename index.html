@@ -228,7 +228,7 @@ body {
       
  
    
-      <form class="form" id="uploadForm" action="" method="POST" name="myForm">
+      <form class="form" id="uploadForm" action="https://script.google.com/macros/s/AKfycbxSYCTk3Kc3iYZNI7CDBBebw7vIZgJaqhMkRcj2SlFESs7Ff0U4/exec" method="POST" name="myForm">
 	  
 	<label for="email">Email</label>
         <input name="email" type="email" id="email" required />
@@ -316,16 +316,14 @@ body {
 	  var email = document.forms["myForm"]["email"].value;
 	  var fullname = document.forms["myForm"]["fullname"].value;
 	  var contact = document.forms["myForm"]["contact"].value;
-	  var regno = document.forms["myForm"]["regno"].value;
-	  var year = document.forms["myForm"]["year"].value;
-	  var instaid = document.forms["myForm"]["instaid"].value;
+	  
 	  var emailValid = status ;
 	  
-	  if (email == "" && fullname == "" && contact == "" && regno == ""){
+	  if (email == "" && fullname == "" && contact == ""){
 		alert("All the fields must be filled out.");
 		bool = false;
 	  }
-	  else if (email == "" || fullname == "" || contact == "" || regno == ""){
+	  else if (email == "" || fullname == "" || contact == ""){
 		alert("All the fields must be filled out.");
 		bool = false;
 	  }
