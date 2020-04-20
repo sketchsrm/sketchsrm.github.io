@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>Web Hacks | Sketch Club | SRM IST</title>
+  <link rel="stylesheet" type="text/css" href="style.css?version=51">
+  
+  <style type="text/css">
+#loader {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.75) url(810.gif) no-repeat center center;
+  z-index: 10000;
+}
+
+
+.right {
+    height: 36.5rem;
+    margin-top: -8rem;
+}
+
+
+.btm-text {
+    top: 140px;
+}
+
+
+#instaid {    
+    position: absolute;
+    width: 250px;
+	text-align: center;
+    background-color: #202129;
+	color:#f2f2f2;
+    border-radius: 3px;
+    box-shadow: 0px 0px 40px 16px rgba(0,0,0,0.22);
+    overflow: hidden;
+}
+
+
+@media only screen and  (max-width: 767px) {
+  .right {
+    flex-shrink: 0;
+    height: 100%;
+    width: 100%;
+	max-height: 560px;
+    margin-top: 110px;
+    margin-top: none;
+  }
+  
+  .eula {
+	display: none;
+    }
+    
+    .login-image {
+		width: 40%; 
+		    margin-left: 65px;
+			margin-top: -10px;
+	}
+
+  
+  .btm-p {
+    color: #fff;
+    }
+
+.btm-text {
+    top: 100px;
+    margin-top: -60px;
+    left: 42%;
+    }
+  
+
+body { 
+  background: url(background.webp) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+    }
+    
+    #instaid {
+    height: 26px;
+}
+
+}
+
+
+
+
+
+
+/* MODAL CSS*/
+
+#mask {
+  display: none;     
+  position:absolute;
+  left:0;
+  top:0;
+  z-index:9000;
+  display:none;
+}  
+#boxes .window {
+  display: none;    
+  position:absolute;
+  font-family: "Stolzl";
+  left:50%;
+  top:50%;
+  width:440px;
+  height:850px;
+  display:none;
+  z-index:9999;
+  padding:20px;
+  border-radius: 5px;
+  text-align: center;
+}
+#boxes #dialog {
+  font-family: "Stolzl";
+  width:450px; 
+  height:auto;
+  background-color:#26262c;
+  font-weight: 400;
+  padding: 10px 10px 10px 10px;
+  color: white;
+  font-size: 15pt;
+}
+
+.close.agree {
+    float:right; 
+    margin-right: -25px; 
+    margin-top: -20px;
+}
+
+
+
+@media only screen and (max-width: 767px) {
+    #boxes .window {
+         width:250px !important;
+         height:325px !important;
+    }
+    
+    #boxes #dialog {
+        left: 90.5px !important; 
+    }
+}
+
+</style>
+  <script src="main.js"></script>
+  
+</head>
+<body>
+<div id="loader"></div>
+
+<!--MODAL-->
+  <div id="boxes">
+            <div id="dialog" class="window"> 
+            <div id="san">
+            <a href="#" class="close agree"><img src="close-icon.png" width="25"></a>
+            <p style="font-family: 'Raleway', sans-serif;">A 7 day long web development boot camp where in from 23th April to 27th April participants will get to learn website building and hosting and from 28th April’20 to 29th April’20 there will be a web hackathon for the participants. Participants would be presented with e-certificates. 
+            </p>
+            <p style="font-family: 'Raleway', sans-serif; font-size: 12px"> MADE WITH ❤️ BY  <img src="sk.png" class="btm-img"></p>
+            </div>
+            </div>
+            <div style="width: 2478px; font-size: 32pt; color:white; height: 1202px; display: none; opacity: 0.4;" id="mask"></div>
+  </div>
+ <script>
+    $(document).ready(function() {	
+
+		var id = '#dialog';
+	
+		//Get the screen height and width
+		var maskHeight = $(document).height();
+		var maskWidth = $(window).width();
+		
+		
+	  if(/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ){
+		//Set heigth and width to mask to fill up the whole screen
+		$('#mask').css({'width':maskWidth,'height':maskHeight});
+		
+		//transition effect		
+		$('#mask').fadeIn(2000);	
+		$('#mask').fadeTo("slow",0.9);	
+	
+		//Get the window height and width
+		var winH = $(window).height();
+		var winW = $(window).width();
+              
+		//Set the popup window to center
+		$(id).css('top',  winH/2-$(id).height()/2);
+		$(id).css('left', winW/2-$(id).width()/2);
+	
+		//transition effect
+		$(id).fadeIn(2000); 	
+	
+	//if close button is clicked
+	$('.window .close').click(function (e) {
+		//Cancel the link behavior
+		e.preventDefault();
+		
+		$('#mask').hide();
+		$('.window').hide();
+	});		
+	
+	//if mask is clicked
+	$('#mask').click(function () {
+		$(this).hide();
+		$('.window').hide();
+	});	
+	  }
+	
+});
+        
+    
+    </script>
+<!--END OF THE MODAL --> 
+
+
+<div class="page">
+  <div class="container">
+    
+	<div class="left" id="left">
+      <div class="login"><img class="login-image" src="logo.png"></div>
+      <div class="eula">A 7 day long web development boot camp where in from 23th April to 27th April Participants will get to learn website building and hosting .From 28th April’20 to 29th April’20 there will be a web hackathon. </div>
+    </div>
+	
+    <div class="right" id="right">
+      
+ 
+   
+      <form class="form" id="uploadForm" action="https://script.google.com/macros/s/AKfycbyum4XL6gqDJTUK-7ZBE0HiMpOyKzr5tQ8pP54CQmu7VXQADt_v/exec" method="POST" name="myForm">
+	  
+	  <input type="hidden" value="" name="fileContent" id="fileContent">
+	  <input type="hidden" value="" name="filename" id="filename">
+      
+    	<label for="email">Email</label>
+        <input name="email" type="email" id="email" required />
+        <br>
+		<label for="fullname" style="margin-top: 30px">Full Name</label>
+        <input name="fullname" type="text" onclick="emailValidation();" pattern="^(\w\w+)\s(\w+)$" id="fullname" required />
+        <br>
+		<label for="contact" style="margin-top: 30px" >Contact</label>
+        <input name="contact" type="text" id="contact" pattern="[789][0-9]{9}" required />
+        <br>
+		<label for="regno" style="margin-top: 30px">Registration No.</label>
+        <input name="regno" type="text" id="regno" pattern="RA[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" required />
+		<br>
+		<label for="year" style="margin-top: 30px">Year</label>
+        <select name="year" type="text" id="year" required>
+			<option>1</option> 
+            <option>2</option> 
+            <option>3</option> 
+            <option>4</option> 
+		</select>
+		<br>
+		<br>
+		<!-- <input type="button" id="upload" value="Upload">style="margin-top: 40px;height: 30px; font-size: 14px; font-weight: bolder; line-height: 1.3;text-shadow: 2px 4px 3px rgba(0,0,0,0.22);"
+ 	     <button style="margin-top: 40px;" >ðŸ“· Upload Image<input id="attach" type="file" name="attach"></button>
+		
+		<input type="submit" id="submit" value="Submit"> -->
+	
+	
+	   
+		<input class='button -regular center' type="button" onclick="UploadFile();" style="margin-top: 20px;" value="Submit">
+
+	  </form>
+
+    </div>
+	
+	</div>
+	<div class="btm-text">
+		<p class="btm-p"> MADE WITH ❤️ BY  <img src="sk.png" class="btm-img"></p>
+	</div>
+</div>
+
+  <script  src="script.js"></script>
+ 
+ 
+
+  <script>
+
+  var status = "1234";
+  
+(function ( $ ) {
+  var baseUrl = "https://api.email-validator.net/api/verify"
+
+  $.validateEmail = function(apiKey){
+    var apiKey = apiKey
+    $.fn.validateEmail = function(cb) {
+      var email = this.val();
+      $.get(baseUrl + "?EmailAddress=" + email + "&APIKey=" + apiKey, $.proxy(function (res) {
+        if (/2[0-9]{2}/g.test(res.status)) {
+          this.css('border-color', 'green');
+          res['simpleStatus'] = "VALID"
+        } else if (/3[0-9]{2}/g.test(res.status)) {
+          this.css('border-color', 'orange');
+          res['simpleStatus'] = "SUSPECT"
+        } else if (/4[0-9]{2}/g.test(res.status)) {
+          this.css('border-color', 'red');
+          res['simpleStatus'] = "INVALID"
+        } else if (/1[0-9]{2}/g.test(res.status)) {
+          this.css('border-color', 'black');
+          res['simpleStatus'] = "INDETERMINATE"
+        }
+        cb(res)
+      }, this));
+      return this;
+    };
+  }
+}( jQuery ));
+
+
+  var emailValidation = function() {
+
+  // Init only once
+  $.validateEmail("ev-59c536fffc347087207ec892478424e9");
+  
+   $("#email").validateEmail(function (response) {
+	  console.log(response.details);
+	  status = response.status;
+	 })
+	   	
+};
+
+  
+  
+  
+	function validateForm() {
+	  var bool = false;
+	  var email = document.forms["myForm"]["email"].value;
+	  var fullname = document.forms["myForm"]["fullname"].value;
+	  var contact = document.forms["myForm"]["contact"].value;
+	  var regno = document.forms["myForm"]["regno"].value;
+	  var year = document.forms["myForm"]["year"].value;
+	  var instaid = document.forms["myForm"]["instaid"].value;
+	  var emailValid = status ;
+	  
+	  if (email == "" && fullname == "" && contact == "" && regno == ""){
+		alert("All the fields must be filled out.");
+		bool = false;
+	  }
+	  else if (email == "" || fullname == "" || contact == "" || regno == ""){
+		alert("All the fields must be filled out.");
+		bool = false;
+	  }
+	  else {
+		   if(emailValid==200){
+					if (/^[6789]\d{9}$/.test(contact)){
+					    
+						    bool=true;
+						   
+						
+					}else{alert("The entered contact number is invalid! Please enter a valid mobile number. Do not include +91 or 91");bool=false;document.getElementById("contact").value = "";}
+			}else{alert("The entered email address is invalid or not existing! Please try again ;-)");bool=false; document.getElementById("fullname").value = "";document.getElementById("email").value = "";}
+	  }
+	  console.log(bool);
+	  return bool;
+	}
+	
+	function UploadFile() {
+		if(validateForm()){
+		var spinner = $('#loader');
+	
+		var reader = new FileReader();
+		var file = document.getElementById('attach').files[0];
+        if(document.getElementById("attach").value != "") {
+            spinner.show();
+    		reader.onload = function(){
+    		document.getElementById('fileContent').value=reader.result;
+    		document.getElementById('filename').value=file.name;
+    		document.getElementById('uploadForm').submit();
+    		}
+    	   reader.readAsDataURL(file);
+    	   }else{alert("Please Choose a File :-)");}
+        }
+	}
+	
+	</script>
+
+
+
+</body>
+</html>
