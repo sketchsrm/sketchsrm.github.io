@@ -341,13 +341,9 @@ body {
 	function UploadFile() {
 		if(validateForm()){
 		var spinner = $('#loader');
-        if(document.getElementById("attach").value != "") {
-            spinner.show();
-    		reader.onload = function(){
+                spinner.show();
     		document.getElementById('uploadForm').submit();
-    		}
-    	   reader.readAsDataURL(file);
-    	   }else{alert("Please Choose a File :-)");}
+    	   }else{alert("Something went wrong");}
         }
 	}
 	
